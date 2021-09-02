@@ -1,0 +1,18 @@
+---
+title: "blog1"
+description: |
+ This is a blog for the Covid19 in South Korea.
+author:
+  - name: Siyi Li
+    url: 
+date: 09-02-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
