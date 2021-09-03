@@ -4,13 +4,14 @@ description: |
  This is a blog for Covid 19 in South Korea based on the vaccination status.
 author:
   - name: Siyi Li
-    url: https://nifty-siyili-5523.netlify.app/posts/blog1/
+    url: https://etc5523-blog1-siyili.netlify.app/posts/blog1/
 date: 09-02-2021
 categories: 
   - Covid19
 output:
   distill::distill_article:
     self_contained: false
+    toc: TRUE
 bibliography: ref.bib
 ---
 
@@ -121,8 +122,7 @@ final_vacc<-vac1%>%
 ```
 
 
-```{r vacc, echo =FALSE,message = FALSE, warning = FALSE, fig.cap="Vaccination Status among South Korea"}
-
+```{r, echo =FALSE,message = FALSE, warning = FALSE, fig.cap="Vaccination Status among South Korea"}
 options(DT.options = list(pageLength = 6))
 vac1%>%select(year, month,people_vaccinated,people_fully_vaccinated)%>%
   group_by(year, month)%>%
@@ -132,7 +132,10 @@ vac1%>%select(year, month,people_vaccinated,people_fully_vaccinated)%>%
 final_vacc%>%
   # select(year,month,fvacc_rate,vacc_rate)%>%
   left_join(vaccc, by = c("month", "year"))->p2
+```
 
+
+```{r vacc, echo =FALSE,message = FALSE, warning = FALSE, fig.cap="Vaccination Status among South Korea"}
 datatable(p2, escape = FALSE,
           options = list(paging = FALSE,
                          dom = 'ft',
@@ -183,9 +186,14 @@ final_data%>%
 ```
 
 ```{r,echo =FALSE,message = FALSE, warning = FALSE}
-NEW%>%select(year,month, active_cum)%>%
+NEW%>%
   group_by(year, month)%>%
-  summarize(active_trend = spk_chr(active_cum, type ="line"))->new
+  summarize(Confirmed = spk_chr(confirmed_cum,  type ="bar"),
+            Death = spk_chr(death_cum, type ="bar"),
+            Recovered = spk_chr(recovered_cum, type ="bar"),
+            Active = spk_chr(active_cum, type ="line"),
+            
+            )->new
 
 #     formattable() %>%
 #     formattable::as.htmlwidget() %>%
@@ -193,18 +201,39 @@ NEW%>%select(year,month, active_cum)%>%
 
 
 final_data<-final_data%>%
-  left_join(new)%>%
+  left_join(new,by = c("year", "month"))%>%
   mutate(month=as.integer(month))%>%
-   arrange(year, month)
+   arrange(year, month)%>%
+   rename("Year"="year",
+           "Month"="month")
 ```
 
-```{r trend,echo =FALSE,message = FALSE, warning = FALSE, fig.cap="Active case and trends during these months"}
+
+```{r summary,echo =FALSE,message = FALSE, warning = FALSE, fig.cap="Data for different categories"}
+options(DT.options = list(pageLength = 10))
+datatable(final_data%>%
+  select(Year:recovered_rate)%>%
+    rename("Confirmed Case"="total_confirmed",
+           "Death Case"="total_death",
+           "recovered Case"="total_recovered",
+           "Active Case"="total_active",
+           "Death Rate"="death_rate",
+           "Recovered Rate"="recovered_rate"),
+  caption ="Data for different categories")
+```
+
+The graph \@ref(fig:summary) presents the data of each category in each month. 
+
+```{r trend,echo =FALSE,message = FALSE, warning = FALSE, fig.cap="Different Trends"}
 # final_data%>%
 #   select(year:total_active,active_trend)->trend_data
-
-datatable(final_data, escape = FALSE,
-          options = list(paging = FALSE,
-                         dom = 'ft',
+data<-final_data%>%
+  select(Year,Month,Confirmed: Active)
+datatable(data,
+          escape = FALSE,
+          caption ="Different Trends",
+          options = list(pageLength = 10,
+                         lengthMenu = c(10, 20),
                          initComplete = JS(
     "function(settings, json) {",
     "$(this.api().table().header()).css({'background-color': 'black', 'color': 'white'});",
@@ -218,6 +247,8 @@ datatable(final_data, escape = FALSE,
     spk_add_deps()
 ```
 
+
+
 ```{r stat, echo =FALSE,message = FALSE, warning = FALSE, fig.cap="Statistic for death rate, recovered rate, and active cases"}
 final_data%>%
   select(death_rate,	recovered_rate,	total_active)->stat
@@ -230,21 +261,21 @@ active_case<-summary(stat$total_active)
 rbind(death_rate, recovered_rate, active_case)%>%
   kable(caption = "Statistic for death rate, recovered rate, and active cases")%>%
   kable_styling(bootstrap_options = c("striped", "hover"))%>%
-    row_spec( 1:3,
-              bold = TRUE)
+    row_spec( 1:3, bold = TRUE)
 ```
 
-The graph \@ref(fig:trend) shows the trend of the active cases in each month, and the table \@ref(tab:stat) indicates the summary for death rate, recovered rate and active cases.
+The graph \@ref(fig:trend) shows the trend of the confirmed cases, death cases, recovered cases and active cases in each month, and the table \@ref(tab:stat) indicates the summary for death rate, recovered rate and active cases.
 
-According to 2020, the epidemic was well controlled in April, May and September because the trend was down in these three months. Meanwhile, the trend of active cases in March, June, July and October has been fluctuating. All the other months showed an upward trend of the cases. For the first three months of 2021, the overall trend of the active cases is down despite some upward fluctuations. However, the trends are very unstable for May and June, and other months generally have an increasing trend.
+According to 2020, the epidemic was well controlled in April, May and September because the trend was down in these three months. Meanwhile, the trend of active cases in March, June, July and October has been fluctuating. All the other months showed an upward trend of the cases. For the first three months of 2021, the overall trend of the active cases is down despite some upward fluctuations. However, the trends are very unstable for May and June, and other months generally have an increasing trend. In addition, the trends of confirmed cases, death cases and recovered cases are increase in each month in general.We should note that the recovery cases at the end of August in 2021 are 0. This may be caused by the escalation of the virus. In other worlds, the generations of the coronavirus makes it harder for us to recover from it.
 
-The death rate in South Korea fluctuated between 0.51% and 2.36% from January 2020 to August 2021. Between April and July of 2020, the death rate was above 2%, but at other times it was below 2%, especially in August of this year since it was less than 1%. In addition, South Korea's recovery rate is good as well, the average recovery rate of 76.44%, the highest recovery rate of 93.85%. For active cases, there are now 249,136 active cases in South Korea, which means a new wave is coming. But according to the recovery rate data, the recovery rate remains at 71.88%, which is smaller the mean value. But the death rate is 0.91%. This means that The epidemic is well under control in South Korea but the government should be careful to deal with the coming wave.
+The death rate in South Korea fluctuated between 0.51% and 2.36% from January 2020 to August 2021. Between April and July of 2020, the death rate was above 2%, but at other times it was below 2%, especially in August of this year since it was less than 1%. In addition, South Korea's recovery rate is good as well, the average recovery rate of 76.44%, the highest recovery rate of 93.85%. For active cases, there are now 249,136 active cases in South Korea, which means a new wave is coming. According to the recovery rate data, the recovery rate remains at 71.88%, which is smaller the mean value, but the death rate is 0.91%. This means that The epidemic looks like under control in South Korea but the government should be careful to deal with the coming wave.
 
 
 
 # Conclusion
 
 According to South Korea's data, a new wave of COVID-19 may be coming. Hope everyone can stay safe.
+
 
 
 

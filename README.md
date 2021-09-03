@@ -2,7 +2,7 @@
 
 
 This is the blog of [Siyi Li].
-The URL of this blog is [https://nifty-siyili-5523.netlify.app].
+The URL of this blog is [https://etc5523-blog1-siyili.netlify.app/].
 
 ## Blog Post 1
 
