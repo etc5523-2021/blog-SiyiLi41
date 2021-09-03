@@ -2,18 +2,18 @@
   "articles": [
     {
       "path": "about.html",
-      "title": "About this blog",
-      "description": "Some additional details about the blog",
+      "title": "About Me",
+      "description": "About Me",
       "author": [],
-      "contents": "\n\n\n\n",
-      "last_modified": "2021-09-01T15:00:36+10:00"
+      "contents": "\nHi, welcome to my blog! I am Siyi Li, a master student who study in Business Analytics in Monash University now.\nI am from China, and I speak mandarian, English :) The blog is about the Covid 19 status and vaccination status in South Korea. If you have any suggestions, please feel free to send me the email.\nYou can find me at:\nGithub\nEmail: Slii0048@student.monash.edu\n\n\n\n",
+      "last_modified": "2021-09-03T15:58:18+10:00"
     },
     {
       "path": "index.html",
       "title": "My Blog",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-09-01T15:00:36+10:00"
+      "last_modified": "2021-09-03T15:58:19+10:00"
     }
   ],
   "collections": ["posts/posts.json"]

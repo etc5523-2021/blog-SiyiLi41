@@ -1,0 +1,27 @@
+
+
+h1{
+  font-family: Monospace;
+  color: brown;
+  font-size: 50px;
+}
+
+h2{
+  font-family: Monospace;
+  color: brown;
+  font-size: 30px;
+}
+
+
+.distill-site-nav {
+  background-color: white;
+  color: black;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.figure{
+  font-weight: 200;
+  line-height: 1.7;
+
+}

@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+  <title>How's the Covid 19 in South Korea</title>
+
+  <meta property="description" itemprop="description" content="This is a blog for Covid 19 in South Korea based on the vaccination status."/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-09-02"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-09-02"/>
+  <meta name="article:author" content="Siyi Li"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="How&#39;s the Covid 19 in South Korea"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="This is a blog for Covid 19 in South Korea based on the vaccination status."/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="How&#39;s the Covid 19 in South Korea"/>
+  <meta property="twitter:description" content="This is a blog for Covid 19 in South Korea based on the vaccination status."/>
+
+  <!--/radix_placeholder_meta_tags-->
+  
+  <meta name="citation_reference" content="citation_title=Here: A simpler way to find your files;citation_publication_date=2020;citation_author=Kirill Müller"/>
+  <meta name="citation_reference" content="citation_title=Dplyr: A grammar of data manipulation;citation_publication_date=2021;citation_author=Hadley Wickham;citation_author=Romain François;citation_author=Lionel Henry;citation_author=Kirill Müller"/>
+  <meta name="citation_reference" content="citation_title=R: A language and environment for statistical computing;citation_publication_date=2021;citation_publisher=R Foundation for Statistical Computing;citation_author=R: A language and environment for statistical computing"/>
+  <meta name="citation_reference" content="citation_title=Tidyr: Tidy messy data;citation_publication_date=2021;citation_author=Hadley Wickham"/>
+  <meta name="citation_reference" content="citation_title=kableExtra: Construct complex table with ’kable’ and pipe syntax;citation_publication_date=2021;citation_author=Hao Zhu"/>
+  <meta name="citation_reference" content="citation_title=DT: A wrapper of the JavaScript library ’DataTables’;citation_publication_date=2021;citation_author=Yihui Xie;citation_author=Joe Cheng;citation_author=Xianying Tan"/>
+  <meta name="citation_reference" content="citation_title=Sparkline: ’jQuery’ sparkline ’htmlwidget’;citation_publication_date=2016;citation_author=Ramnath Vaidyanathan;citation_author=Kent Russell;citation_author=Gareth Watts"/>
+  <meta name="citation_reference" content="citation_title=Htmlwidgets: HTML widgets for r;citation_publication_date=2020;citation_author=Ramnath Vaidyanathan;citation_author=Yihui Xie;citation_author=JJ Allaire;citation_author=Joe Cheng;citation_author=Carson Sievert;citation_author=Kenton Russell"/>
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","output","bibliography"]}},"value":[{"type":"character","attributes":{},"value":["How's the Covid 19 in South Korea"]},{"type":"character","attributes":{},"value":["This is a blog for Covid 19 in South Korea based on the vaccination status.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Siyi Li"]},{"type":"character","attributes":{},"value":["https://nifty-siyili-5523.netlify.app/posts/blog1/"]}]}]},{"type":"character","attributes":{},"value":["09-02-2021"]},{"type":"character","attributes":{},"value":["Covid19"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["ref.bib"]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["blog1_files/anchor-4.2.2/anchor.min.js","blog1_files/bowser-1.9.3/bowser.min.js","blog1_files/crosstalk-1.1.1/css/crosstalk.css","blog1_files/crosstalk-1.1.1/js/crosstalk.js","blog1_files/crosstalk-1.1.1/js/crosstalk.js.map","blog1_files/crosstalk-1.1.1/js/crosstalk.min.js","blog1_files/crosstalk-1.1.1/js/crosstalk.min.js.map","blog1_files/datatables-binding-0.18/datatables.js","blog1_files/datatables-css-0.0.0/datatables-crosstalk.css","blog1_files/distill-2.2.21/template.v2.js","blog1_files/dt-core-1.10.20/css/jquery.dataTables.extra.css","blog1_files/dt-core-1.10.20/css/jquery.dataTables.min.css","blog1_files/dt-core-1.10.20/js/jquery.dataTables.min.js","blog1_files/header-attrs-2.10/header-attrs.js","blog1_files/htmlwidgets-1.5.3/htmlwidgets.js","blog1_files/jquery-3.5.1/jquery-AUTHORS.txt","blog1_files/jquery-3.5.1/jquery.js","blog1_files/jquery-3.5.1/jquery.min.js","blog1_files/jquery-3.5.1/jquery.min.map","blog1_files/jquery-sparkline-2.1.2/jquery.sparkline.css","blog1_files/jquery-sparkline-2.1.2/jquery.sparkline.js","blog1_files/jquery-sparkline-2.1.2/jquery.sparkline.min.js","blog1_files/jquery-sparkline-2.1.2/package.json","blog1_files/jquery-sparkline-2.1.2/README.md","blog1_files/kePrint-0.0.1/kePrint.js","blog1_files/lightable-0.0.1/lightable.css","blog1_files/popper-2.6.0/popper.min.js","blog1_files/sparkline-binding-2.0/sparkline.js","blog1_files/tippy-6.2.7/tippy-bundle.umd.min.js","blog1_files/tippy-6.2.7/tippy-light-border.css","blog1_files/tippy-6.2.7/tippy.css","blog1_files/tippy-6.2.7/tippy.umd.min.js","blog1_files/webcomponents-2.0.0/webcomponents.js","coronavirus.jpeg","ref.bib"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="blog1_files/header-attrs-2.10/header-attrs.js"></script>
+  <script src="blog1_files/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+  <script src="blog1_files/jquery-3.5.1/jquery.min.js"></script>
+  <link href="blog1_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+  <script src="blog1_files/datatables-binding-0.18/datatables.js"></script>
+  <link href="blog1_files/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+  <link href="blog1_files/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+  <script src="blog1_files/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+  <link href="blog1_files/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+  <script src="blog1_files/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+  <link href="blog1_files/jquery-sparkline-2.1.2/jquery.sparkline.css" rel="stylesheet" />
+  <script src="blog1_files/jquery-sparkline-2.1.2/jquery.sparkline.js"></script>
+  <script src="blog1_files/sparkline-binding-2.0/sparkline.js"></script>
+  <script src="blog1_files/kePrint-0.0.1/kePrint.js"></script>
+  <link href="blog1_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
+  <script src="blog1_files/popper-2.6.0/popper.min.js"></script>
+  <link href="blog1_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="blog1_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="blog1_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="blog1_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="blog1_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="blog1_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="blog1_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"How's the Covid 19 in South Korea","description":"This is a blog for Covid 19 in South Korea based on the vaccination status.","authors":[{"author":"Siyi Li","authorURL":"https://nifty-siyili-5523.netlify.app/posts/blog1/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-09-02T00:00:00.000+00:00","citationText":"Li, 2021"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>How’s the Covid 19 in South Korea</h1>
+<!--radix_placeholder_categories-->
+<div class="dt-tags">
+<div class="dt=tag">Covid19</div>
+</div>
+<!--/radix_placeholder_categories-->
+<p><p>This is a blog for Covid 19 in South Korea based on the vaccination status.</p></p>
+</div>
+
+<div class="d-byline">
+  Siyi Li <a href="https://nifty-siyili-5523.netlify.app/posts/blog1/" class="uri">https://nifty-siyili-5523.netlify.app/posts/blog1/</a> 
+  
+<br/>09-02-2021
+</div>
+
+<div class="d-article">
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="coronavirus.jpeg" width="600" /></p>
+</div>
+<h1 id="data-description">Data description</h1>
+<p>There are 2 kinds of dataset, one comes from the package named <strong>coronavirus</strong>and we can get more information in the <a href="https://github.com/RamiKrispin/coronavirus">websit</a>, the other named <strong>vaccination</strong> is from the<a href="https://github.com/owid/covid-19-data/tree/master/public/data">owid Github repositories</a>. In addition we can download the coronavirus dataset from the <a href="https://github.com/RamiKrispin/coronavirus/tree/master/data">RamiKrispin’s github</a></p>
+<p><strong>coronavirus</strong> dataset focus on the confirmed case, death case and recovered case which are collected by daily.</p>
+<p><strong>vaccination</strong> dataset focus on the vaccination status which updated by daily as well. It includes:</p>
+<ul>
+<li><p>people_fully_vaccinated: Total number of people who received all doses prescribed by the vaccination protocol</p></li>
+<li><p>total_vaccinations: Total number of COVID-19 vaccination doses administered</p></li>
+<li><p>people_vaccinated: Total number of people who received at least one vaccine dose</p></li>
+<li><p>population: Population in 2020</p></li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<h1 id="analysis">Analysis</h1>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span style="display:block;" id="fig:vacc"></span>
+<div id="htmlwidget-e19c8b2a643aecac4b1f" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e19c8b2a643aecac4b1f">{"x":{"filter":"none","data":[["1","2","3","4","5"],["2021","2021","2021","2021","2021"],["4","5","6","7","8"],[51305184,51305184,51305184,51305184,51305184],[3591181,7972282,19286613,25467318,41521012],[228843,2174572,5073846,7148605,14346836],[0.45,4.24,9.89,13.93,27.96],[7,15.54,37.59,49.64,80.93],["<span id=\"htmlwidget-9834995e0b0254cf7769\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-9834995e0b0254cf7769\">{\"x\":{\"values\":[917516,957004,965591,966221,1003121,1041985,1079643,1116807,1150454,1159252,1159557,1197873,1242268,1288834,1382619,1486138,1515548,1520414,1643381,1774749,1907403,2039301,2199536,2264642,2270930,2413752,2590761,2822908,3085223,3362338],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-972916ee6067fd98f526\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-972916ee6067fd98f526\">{\"x\":{\"values\":[3402495,3404056,3490220,3565008,3570349,3627845,3675845,3687954,3687957,3701420,3709959,3716084,3724721,3735622,3736916,3736923,3750294,3762761,3764577,3776841,3791270,3796403,3796621,3868451,3946678,4034391,4696338,5241372,5406016,5410746,5797710],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-a0951f9fca804c581982\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-a0951f9fca804c581982\">{\"x\":{\"values\":[6365357,6748394,7092381,7461487,7601606,7604574,8499495,9246246,9840480,10608155,11435409,11824507,11852388,12622079,13269417,13837936,14281281,14818593,15034962,15035575,15083017,15131834,15175969,15221631,15285511,15296736,15296742,15310005,15326739,15341447],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-8e94237eb33994271b6d\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-8e94237eb33994271b6d\">{\"x\":{\"values\":[15345876,15350939,15352439,15352439,15406983,15445361,15480775,15518850,15577276,15590164,15590645,15622030,15730144,15842334,15965404,16100124,16134667,16137077,16297230,16447931,16587589,16728245,16874985,16904325,16905936,17525257,17907498,18387756,18735553,19232825,19448522],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-a139b85869743e067ea2\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-a139b85869743e067ea2\">{\"x\":{\"values\":[19476542,19953720,20174419,20340911,20534773,20791392,20913258,20940999,21378278,21642185,21820618,21990032,22234017,22377392,22395902,23068273,23794089,24318671,24824221,25515698,25880889,25921143,26309371,26715012,27093129,27746442,28345045],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>"],["<span id=\"htmlwidget-c930475d7e8c0a264b61\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-c930475d7e8c0a264b61\">{\"x\":{\"values\":[20244,26843,27387,27453,27770,33514,42756,52256,59542,60631,60631,60656,60660,60663,60666,60866,60866,60866,60868,60881,60907,79448,99064,104837,105204,126807,148597,169042,199085,228843],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-c2ca4c44928e605ca690\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-c2ca4c44928e605ca690\">{\"x\":{\"values\":[236556,236870,267451,298689,324000,397517,474334,501881,506616,584192,664986,747882,825879,906005,936165,941153,1041536,1183435,1276505,1487746,1713226,1748994,1751700,1856716,1950201,2017892,2073086,2138289,2147172,2147259,2174572],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-8801b3b9a4623e3cba6c\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-8801b3b9a4623e3cba6c\">{\"x\":{\"values\":[2201000,2223760,2249512,2279438,2281806,2281806,2302438,2328218,2352751,2640620,2878073,2997287,3009274,3268080,3477324,3760218,3889741,4017572,4053616,4054752,4172229,4297618,4417988,4525883,4622773,4646430,4647170,4791752,4936753,5073846],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-276f85e3c52c663a060e\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-276f85e3c52c663a060e\">{\"x\":{\"values\":[5194517,5315372,5332387,5333033,5409442,5500203,5589246,5695443,5843979,5883365,5884477,5978008,6088027,6210377,6352867,6537100,6573804,6574326,6645564,6706941,6746235,6805878,6865499,6876531,6876591,6941235,6989612,7032001,7075123,7135147,7148605],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-6a8e0469f25d8601e83a\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-6a8e0469f25d8601e83a\">{\"x\":{\"values\":[7149088,7185264,7292309,7402271,7529119,7684871,7720754,7722996,7896816,8066030,8229378,8936320,9557274,9739898,9745482,10001950,10498052,10817877,11111539,11444634,11568312,11570591,12289777,12894328,13372201,13797724,14346836],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>year<\/th>\n      <th>month<\/th>\n      <th>population<\/th>\n      <th>newVacc<\/th>\n      <th>fullVacc<\/th>\n      <th>fvacc_rate<\/th>\n      <th>vacc_rate<\/th>\n      <th>vacc_trend<\/th>\n      <th>fullVacc_trend<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"paging":false,"dom":"ft","initComplete":"function(settings, json) {\n$(this.api().table().header()).css({'background-color': 'black', 'color': 'white'});\n}","fnDrawCallback":"function(){\n  HTMLWidgets.staticRender();\n}\n","columnDefs":[{"className":"dt-right","targets":[3,4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[7]; $(this.api().cell(row, 7).node()).css({'background':isNaN(parseFloat(value)) || value <= 7.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(80.930000 - value, 0)/73.930000 * 100 + '%, lightblue ' + Math.max(80.930000 - value, 0)/73.930000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.450000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(27.960000 - value, 0)/27.510000 * 100 + '%, gray ' + Math.max(27.960000 - value, 0)/27.510000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\n}"}},"evals":["options.initComplete","options.fnDrawCallback","options.rowCallback"],"jsHooks":[]}</script>
+<p class="caption">
+Figure 1: Vaccination Status among South Korea
+</p>
+</div>
+</div>
+<p>This graph <a href="#fig:vacc">1</a> shows the full vaccination rate had reached 27.96 percent by August 2021. Compared with that, the amount of people who received at least one vaccine dose is larger than three times. This phenomenon indicates that the vaccine has been widely used in South Korea, which is also a good way to prevent and control the outbreak.</p>
+<p>Moreover, the graph presents the trend of the full vaccination and vaccination. For example, the number of people who had received at least one dose of vaccine increased rapidly at the end of May, but by the end of June, those numbers had changed little. However,The trends of the full vaccination are increase more stable during each month. Overall, both the trends are increase.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span style="display:block;" id="fig:trend"></span>
+<div id="htmlwidget-70ea0515a5f69a6103c1" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-70ea0515a5f69a6103c1">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],["2020","2020","2020","2020","2020","2020","2020","2020","2020","2020","2020","2020","2021","2021","2021","2021","2021","2021","2021","2021"],[1,2,3,4,5,6,7,8,9,10,11,12,1,2,3,4,5,6,7,8],[11,3150,9786,10774,11503,12850,14336,20182,23889,26635,34652,61769,78508,90031,103639,122634,140799,157723,199787,251421],[0,16,162,248,271,282,301,324,415,466,526,917,1425,1605,1735,1831,1963,2021,2098,2285],[0,27,5408,9072,10422,11613,13233,15198,21666,24357,27885,42953,68309,81070,95439,112337,131463,148024,175674,180719],[11,3107,7577,4155,1407,1324,1005,4660,4786,1856,6241,17899,18073,8634,7871,8757,8598,7917,22087,249136],[0,0.51,1.66,2.3,2.36,2.19,2.1,1.61,1.74,1.75,1.52,1.48,1.82,1.78,1.67,1.49,1.39,1.28,1.05,0.91],[0,0.86,55.26,84.2,90.6,90.37,92.31,75.3,90.69,91.45,80.47,69.54,87.01,90.05,92.09,91.6,93.37,93.85,87.93,71.88],["<span id=\"htmlwidget-9521dd81ba8a2404880c\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-9521dd81ba8a2404880c\">{\"x\":{\"values\":[1,1,2,2,3,4,4,4,4,11],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-804542abf23f04fab413\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-804542abf23f04fab413\">{\"x\":{\"values\":[12,15,15,16,19,23,23,23,22,24,25,21,21,21,19,20,20,19,19,87,186,415,578,807,945,1227,1731,2302,3107],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-d85513ab358aec223034\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-d85513ab358aec223034\">{\"x\":{\"values\":[3689,4277,5128,5545,6012,6416,6862,7146,7307,7212,7407,7470,7403,7504,7577,7024,6832,6789,6934,7018,7157,5941,5941,5410,5281,4966,4665,4523,4398,4275,4216],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-bbe5b15dbe207ed15926\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-bbe5b15dbe207ed15926\">{\"x\":{\"values\":[4155,3979,3867,3654,3591,3500,3445,3408,3246,3125,3026,2930,2873,2808,2750,2627,2576,2484,2385,2324,2233,2179,1967,1843,1769,1731,1654,1593,1459,1454],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-c57cd95ea021c2e8615c\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-c57cd95ea021c2e8615c\">{\"x\":{\"values\":[1407,1360,1332,1267,1218,1135,1082,1016,1008,1021,1008,1008,969,937,924,900,898,877,781,723,716,705,711,713,681,701,735,770,774,793,810],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-284b3e80b453150f559a\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-284b3e80b453150f559a\">{\"x\":{\"values\":[823,850,857,889,915,951,978,989,1015,1017,1057,1083,1090,1114,1117,1145,1177,1191,1237,1273,1277,1295,1324,1307,1148,1054,1069,1046,981,955],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-2a579a04344b1aa91a47\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-2a579a04344b1aa91a47\">{\"x\":{\"values\":[938,926,936,976,1005,982,989,987,985,941,950,986,941,914,925,919,898,894,903,877,884,883,864,928,962,971,896,882,837,821,802],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-de15624ba332001427ba\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-de15624ba332001427ba\">{\"x\":{\"values\":[806,808,770,748,696,673,629,651,663,626,623,648,705,833,1103,1293,1521,1746,1976,2241,2524,2890,3137,3349,3585,3932,4210,4314,4473,4650,4660],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-15b6baa74b859218668f\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-15b6baa74b859218668f\">{\"x\":{\"values\":[4767,4786,4728,4668,4697,4663,4455,4221,4037,3953,3671,3592,3433,3146,2827,2742,2635,2545,2434,2412,2277,2178,2116,2082,1951,1962,1963,1822,1809,1808],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-53f08f41c77647c522d6\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-53f08f41c77647c522d6\">{\"x\":{\"values\":[1803,1820,1825,1856,1734,1594,1532,1479,1494,1481,1541,1508,1421,1467,1414,1407,1443,1463,1420,1390,1443,1526,1484,1510,1593,1602,1612,1641,1695,1736,1812],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-8d2c1c333a2be7295ea0\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-8d2c1c333a2be7295ea0\">{\"x\":{\"values\":[1869,1825,1835,1840,1898,1897,1981,2044,2008,2046,2051,2108,2210,2362,2516,2644,2842,3058,3253,3535,3762,3956,4121,4397,4853,5268,5504,5759,6022,6241],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-4e2e5e869845cd4d9b47\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-4e2e5e869845cd4d9b47\">{\"x\":{\"values\":[6572,6822,7185,7458,7873,8311,8553,8699,8897,9057,9665,10372,10795,11205,11883,12209,12888,13577,14269,14738,14810,15085,15352,15949,16577,17024,17593,17163,17459,17569,17899],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-d6b548a2c23f5dc8f77f\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-d6b548a2c23f5dc8f77f\">{\"x\":{\"values\":[18073,17775,18043,17800,17796,17991,17908,17575,17130,15422,14917,14391,13761,13488,13030,12838,12742,12364,12038,11756,11519,11311,11205,11205,9711,9573,9524,9493,9315,8907,8774],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-1db21818df772fd06c6b\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-1db21818df772fd06c6b\">{\"x\":{\"values\":[8634,8571,8610,8555,8555,8560,8493,8329,8218,8300,8394,8458,8444,8548,8240,8048,8127,8065,7938,7919,7875,7714,7494,7448,7457,7393,7376,7356],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-b1955490852de334563a\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-b1955490852de334563a\">{\"x\":{\"values\":[7428,7504,7459,7451,7510,7617,7701,7718,7773,7871,7281,6884,6558,6588,6447,6349,6428,6544,6567,6641,6767,6638,6579,6499,6424,6079,6180,6291,6290,6327,6465],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-c0f9c87663ec4517f478\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-c0f9c87663ec4517f478\">{\"x\":{\"values\":[6596,6800,6946,7104,7115,7214,7480,7719,7879,7682,7572,7581,7654,7816,7937,8056,8312,8371,8166,8243,8394,8576,8650,8599,8720,8383,8604,8739,8757,8466],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-b1a2d78b438871deb3fb\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-b1a2d78b438871deb3fb\">{\"x\":{\"values\":[8542,8538,8301,8154,8177,8162,7999,8012,8053,7687,7661,7836,8092,7883,8007,8224,8283,8322,8542,8598,8386,8117,8106,8052,8160,8188,8191,7741,7572,7558,7373],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-0e8f17bd7594050c4348\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-0e8f17bd7594050c4348\">{\"x\":{\"values\":[7443,7490,7594,7862,7917,7802,7704,7541,7611,7654,7403,7308,7263,6922,6760,6708,6426,6338,6248,6234,6078,6159,6359,6391,6456,6718,6882,7073,7250,7678],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-ce3b9833c7008a92f258\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-ce3b9833c7008a92f258\">{\"x\":{\"values\":[8206,8185,8444,8723,8749,9220,10071,10810,11531,12243,12915,13498,14372,14952,15882,16485,16941,17515,18075,18571,18967,19461,20048,20400,20724,22087,20850,21455,21960,22073,22015],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-1360a09a010a99ecc4bc\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-1360a09a010a99ecc4bc\">{\"x\":{\"values\":[22298,22190,22697,22874,205293,207112,208835,210323,211853,214071,216054,218038,219963,221772,223314,224681,226479,228617,230662,232537,234151,235560,237059,239202,241060,242893,244675,246289,247767,249136],\"options\":{\"type\":\"line\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>year<\/th>\n      <th>month<\/th>\n      <th>total_confirmed<\/th>\n      <th>total_death<\/th>\n      <th>total_recovered<\/th>\n      <th>total_active<\/th>\n      <th>death_rate<\/th>\n      <th>recovered_rate<\/th>\n      <th>active_trend<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"paging":false,"dom":"ft","initComplete":"function(settings, json) {\n$(this.api().table().header()).css({'background-color': 'black', 'color': 'white'});\n}","fnDrawCallback":"function(){\n  HTMLWidgets.staticRender();\n}\n","columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":["options.initComplete","options.fnDrawCallback"],"jsHooks":[]}</script>
+<p class="caption">
+Figure 2: Active case and trends during these months
+</p>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:stat">Table 1: </span>Statistic for death rate, recovered rate, and active cases
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Min.
+</th>
+<th style="text-align:right;">
+1st Qu.
+</th>
+<th style="text-align:right;">
+Median
+</th>
+<th style="text-align:right;">
+Mean
+</th>
+<th style="text-align:right;">
+3rd Qu.
+</th>
+<th style="text-align:right;">
+Max.
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+death_rate
+</td>
+<td style="text-align:right;font-weight: bold;">
+0
+</td>
+<td style="text-align:right;font-weight: bold;">
+1.3625
+</td>
+<td style="text-align:right;font-weight: bold;">
+1.635
+</td>
+<td style="text-align:right;font-weight: bold;">
+1.5305
+</td>
+<td style="text-align:right;font-weight: bold;">
+1.7900
+</td>
+<td style="text-align:right;font-weight: bold;">
+2.36
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+recovered_rate
+</td>
+<td style="text-align:right;font-weight: bold;">
+0
+</td>
+<td style="text-align:right;font-weight: bold;">
+74.4450
+</td>
+<td style="text-align:right;font-weight: bold;">
+88.990
+</td>
+<td style="text-align:right;font-weight: bold;">
+76.4415
+</td>
+<td style="text-align:right;font-weight: bold;">
+91.4875
+</td>
+<td style="text-align:right;font-weight: bold;">
+93.85
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+active_case
+</td>
+<td style="text-align:right;font-weight: bold;">
+11
+</td>
+<td style="text-align:right;font-weight: bold;">
+2794.2500
+</td>
+<td style="text-align:right;font-weight: bold;">
+6909.000
+</td>
+<td style="text-align:right;font-weight: bold;">
+19255.0500
+</td>
+<td style="text-align:right;font-weight: bold;">
+8664.7500
+</td>
+<td style="text-align:right;font-weight: bold;">
+249136.00
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The graph <a href="#fig:trend">2</a> shows the trend of the active cases in each month, and the table <a href="#tab:stat">1</a> indicates the summary for death rate, recovered rate and active cases.</p>
+<p>According to 2020, the epidemic was well controlled in April, May and September because the trend was down in these three months. Meanwhile, the trend of active cases in March, June, July and October has been fluctuating. All the other months showed an upward trend of the cases. For the first three months of 2021, the overall trend of the active cases is down despite some upward fluctuations. However, the trends are very unstable for May and June, and other months generally have an increasing trend.</p>
+<p>The death rate in South Korea fluctuated between 0.51% and 2.36% from January 2020 to August 2021. Between April and July of 2020, the death rate was above 2%, but at other times it was below 2%, especially in August of this year since it was less than 1%. In addition, South Korea’s recovery rate is good as well, the average recovery rate of 76.44%, the highest recovery rate of 93.85%. For active cases, there are now 249,136 active cases in South Korea, which means a new wave is coming. But according to the recovery rate data, the recovery rate remains at 71.88%, which is smaller the mean value. But the death rate is 0.91%. This means that The epidemic is well under control in South Korea but the government should be careful to deal with the coming wave.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>According to South Korea’s data, a new wave of COVID-19 may be coming. Hope everyone can stay safe.</p>
+<h1 id="acknowledgments">Acknowledgments</h1>
+<p>Thanks for contributors of these following R packages: <span class="citation" data-cites="1"><a href="#ref-1" role="doc-biblioref">Müller</a> (<a href="#ref-1" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="2"><a href="#ref-2" role="doc-biblioref">Wickham et al.</a> (<a href="#ref-2" role="doc-biblioref">2021</a>)</span>, <span class="citation" data-cites="3"><a href="#ref-3" role="doc-biblioref">R Core Team</a> (<a href="#ref-3" role="doc-biblioref">2021</a>)</span>, <span class="citation" data-cites="4"><a href="#ref-4" role="doc-biblioref">Wickham</a> (<a href="#ref-4" role="doc-biblioref">2021</a>)</span>, <span class="citation" data-cites="5"><a href="#ref-5" role="doc-biblioref">Zhu</a> (<a href="#ref-5" role="doc-biblioref">2021</a>)</span>, <span class="citation" data-cites="6"><a href="#ref-6" role="doc-biblioref">Xie, Cheng, and Tan</a> (<a href="#ref-6" role="doc-biblioref">2021</a>)</span>, <span class="citation" data-cites="7"><a href="#ref-7" role="doc-biblioref">Vaidyanathan, Russell, and Watts</a> (<a href="#ref-7" role="doc-biblioref">2016</a>)</span>, <span class="citation" data-cites="8"><a href="#ref-8" role="doc-biblioref">Vaidyanathan et al.</a> (<a href="#ref-8" role="doc-biblioref">2020</a>)</span>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-1" class="csl-entry" role="doc-biblioentry">
+Müller, Kirill. 2020. <em>Here: A Simpler Way to Find Your Files</em>. <a href="https://CRAN.R-project.org/package=here">https://CRAN.R-project.org/package=here</a>.
+</div>
+<div id="ref-3" class="csl-entry" role="doc-biblioentry">
+R Core Team. 2021. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-7" class="csl-entry" role="doc-biblioentry">
+Vaidyanathan, Ramnath, Kent Russell, and Gareth Watts. 2016. <em>Sparkline: ’jQuery’ Sparkline ’Htmlwidget’</em>. <a href="https://CRAN.R-project.org/package=sparkline">https://CRAN.R-project.org/package=sparkline</a>.
+</div>
+<div id="ref-8" class="csl-entry" role="doc-biblioentry">
+Vaidyanathan, Ramnath, Yihui Xie, JJ Allaire, Joe Cheng, Carson Sievert, and Kenton Russell. 2020. <em>Htmlwidgets: HTML Widgets for r</em>. <a href="https://CRAN.R-project.org/package=htmlwidgets">https://CRAN.R-project.org/package=htmlwidgets</a>.
+</div>
+<div id="ref-4" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley. 2021. <em>Tidyr: Tidy Messy Data</em>. <a href="https://CRAN.R-project.org/package=tidyr">https://CRAN.R-project.org/package=tidyr</a>.
+</div>
+<div id="ref-2" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2021. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
+</div>
+<div id="ref-6" class="csl-entry" role="doc-biblioentry">
+Xie, Yihui, Joe Cheng, and Xianying Tan. 2021. <em>DT: A Wrapper of the JavaScript Library ’DataTables’</em>. <a href="https://CRAN.R-project.org/package=DT">https://CRAN.R-project.org/package=DT</a>.
+</div>
+<div id="ref-5" class="csl-entry" role="doc-biblioentry">
+Zhu, Hao. 2021. <em>kableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax</em>. <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>.
+</div>
+</div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom">
+<h3 id="references">References</h3>
+<div id="references-listing"></div>
+</div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>

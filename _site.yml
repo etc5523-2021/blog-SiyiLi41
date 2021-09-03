@@ -1,12 +1,24 @@
 name: "blog"
-title: "My Blog"
+title: "ETC5523 Blog"
 description: |
-  My Blog
+  The blog for Covid 19
 output_dir: "_site"
 navbar:
-  right:
+  left:
     - text: "Home"
+      icon: fa-home
       href: index.html
-    - text: "About"
+    - text: "About Me"
+      icon: fa-info
       href: about.html
-output: distill::distill_article
+    - text: "Github"
+      icon: fa fa-github
+      href: https://github.com/etc5523-2021/blog-SiyiLi41
+rss:
+  full_content: true
+  categories:
+  - Covid19
+output: 
+  distill::distill_article:
+    css: style.css
+    listing: posts

@@ -1,9 +1,25 @@
 ---
-title: "About this blog"
+title: "About Me"
 description: |
-  Some additional details about the blog
+  About Me
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+Hi, welcome to my blog!
+I am Siyi Li, a master student who study in Business Analytics in Monash University now.
+
+I am from China, and I speak mandarian, English :)
+The blog is about the Covid 19 status and vaccination status in South Korea. If you have any suggestions, please feel free to send me the email.
+
+You can find me at:
+
+- [Github](https://github.com/SiyiLi41)
+- Email: Slii0048@student.monash.edu
+
+
+
+
+
