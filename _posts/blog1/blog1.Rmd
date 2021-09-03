@@ -108,6 +108,8 @@ vac1%>%
 
 
 # Analysis
+
+## Vaccination Status
 ```{r, echo =FALSE,message = FALSE, warning = FALSE}
 final_vacc<-vac1%>%
   group_by(month, year, population)%>%
@@ -166,6 +168,10 @@ datatable(p2, escape = FALSE,
 This graph \@ref(fig:vacc) shows the full vaccination rate had reached 27.96 percent by August 2021. Compared with that, the amount of people who received at least one vaccine dose is larger than three times. This phenomenon indicates that the vaccine has been widely used in South Korea,  which is also a good way to prevent and control the outbreak.
 
 Moreover, the graph presents the trend of the full vaccination and vaccination. For example, the number of people who had received at least one dose of vaccine increased rapidly at the end of May, but by the end of June, those numbers had changed little. However,The trends of the full vaccination are increase more stable during each month. Overall, both the trends are increase.
+
+
+
+## Confirmed, Active, Death, Recovered Cases
 
 ```{r,echo =FALSE,message = FALSE, warning = FALSE}
 total_rate<-mydata%>%
@@ -266,9 +272,9 @@ rbind(death_rate, recovered_rate, active_case)%>%
 
 The graph \@ref(fig:trend) shows the trend of the confirmed cases, death cases, recovered cases and active cases in each month, and the table \@ref(tab:stat) indicates the summary for death rate, recovered rate and active cases.
 
-According to 2020, the epidemic was well controlled in April, May and September because the trend was down in these three months. Meanwhile, the trend of active cases in March, June, July and October has been fluctuating. All the other months showed an upward trend of the cases. For the first three months of 2021, the overall trend of the active cases is down despite some upward fluctuations. However, the trends are very unstable for May and June, and other months generally have an increasing trend. In addition, the trends of confirmed cases, death cases and recovered cases are increase in each month in general.We should note that the recovery cases at the end of August in 2021 are 0. This may be caused by the escalation of the virus. In other worlds, the generations of the coronavirus makes it harder for us to recover from it.
+According to 2020, the epidemic was well controlled in April, May and September because the trend was down in these three months. Meanwhile, the trend of active cases in March, June, July and October has been fluctuating. All the other months showed an upward trend of the cases. For the first three months of 2021, the overall trend of the active cases is down despite some upward fluctuations. However, the trends are very unstable for May and June, and other months generally have an increasing trend. In addition, the trends of confirmed cases, death cases and recovered cases are increase in each month in general.We should note that the recovery cases at the end of August in 2021 are 0. This may be caused by the escalation of the virus. In other words, the generations of the coronavirus makes it harder for us to recover from it.
 
-The death rate in South Korea fluctuated between 0.51% and 2.36% from January 2020 to August 2021. Between April and July of 2020, the death rate was above 2%, but at other times it was below 2%, especially in August of this year since it was less than 1%. In addition, South Korea's recovery rate is good as well, the average recovery rate of 76.44%, the highest recovery rate of 93.85%. For active cases, there are now 249,136 active cases in South Korea, which means a new wave is coming. According to the recovery rate data, the recovery rate remains at 71.88%, which is smaller the mean value, but the death rate is 0.91%. This means that The epidemic looks like under control in South Korea but the government should be careful to deal with the coming wave.
+The death rate in South Korea fluctuated between 0.51% and 2.36% from January 2020 to August 2021. Between April and July of 2020, the death rate was above 2%, but at other times it was below 2%, especially in August of this year since it was less than 1%. In addition, South Korea's recovery rate is good as well, the average recovery rate of 76.44%, the highest recovery rate of 93.85%. For active cases, there are now 249,136 active cases in South Korea, which means a new wave is coming. According to the recovery rate data, the recovery rate remains at 71.88%, which is smaller than the mean value, but the death rate is 0.91% which is the lowest. This means that The epidemic looks like under control in South Korea but the government should be careful to deal with the coming wave.
 
 
 
