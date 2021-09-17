@@ -25,4 +25,3 @@ output:
 collections:
   posts:
    subscribe: _subscribe.html
-   custom: _custom.html
