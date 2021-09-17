@@ -28,6 +28,10 @@ library(gganimate)
 library(dplyr)
 library(coronavirus)
 library(plotly)
+library(grid)
+library(dygraphs)
+library(zoo)
+library(xts)
 ```
 
 ```{r, echo=FALSE}
@@ -133,8 +137,6 @@ data<- paki %>%
 ```
 
 
-
-
 ```{r line, echo=FALSE,warning=FALSE,message=FALSE, fig.cap="Trend of active cases"}
 paki%>%
   ggplot(aes(x=date, y=active_cum))+
@@ -152,39 +154,29 @@ In addition, from the graph \@ref(fig:line), it is easy to find that most of the
 
 Vaccination can help people produce some antibodies against the virus, so we want to see how vaccination in Pakistan is.
 
-```{r, echo=FALSE}
-vaccine<-vac%>%
-  group_by(year,month,population)%>%
-    summarise(people_vacc=max(people_vaccinated),
-            full_vacc=max(people_fully_vaccinated))%>%
-  ungroup()
-```
-
 ```{r bar, fig.cap="Vaccination rate in Pakistan"}
-vac_data<-vaccine %>% 
-  mutate(people_vaccinated_rate=round(people_vacc/population,digits = 5),
-         fully_vaccinated_rate=round(full_vacc/population, digits = 5))
-vacc1<-vac_data%>%
-   pivot_longer(cols =people_vaccinated_rate:fully_vaccinated_rate,
-                names_to = "rates",
-                values_to = "value")
-  
-vacc1%>%
-  ggplot(aes(x=month, y=value, fill=rates))+
-  geom_col(position = "dodge")+
-  facet_grid(~year)+
-  ggtitle("Vaccination rate in Pakistan")+
-  ylab("vaccination rate")+
-  theme(axis.title.x = element_text(margin=margin(t=20)), 
-      axis.title.y = element_text(margin=margin(r=60)))->p1
+vac%>% 
+  mutate(Date=as.Date(date),
+        people_vaccinated_rate=round(people_vaccinated/population,digits = 5),
+        people_fully_vaccinated_rate=round(people_fully_vaccinated/population, digits = 5))->vaccc
+vaccc%>%
+  select(date,people_vaccinated_rate,people_fully_vaccinated_rate)%>%
+  xts(order.by=as.POSIXct(vaccc$Date))%>% 
+  dygraph( main = "Vaccination rate in Pakistan", 
+         xlab = "Date")%>%
+  dyOptions(drawGrid = T, digitsAfterDecimal=5)%>%
+  dySeries("people_fully_vaccinated_rate", axis=('y2'), color="black") %>%
+  dySeries("people_vaccinated_rate", axis=('y'), color="red")%>%
+  dyAxis("y", label = "people vaccinated rate",independentTicks = TRUE)%>%
+  dyAxis("y2", label = "people fully vaccinated rate",independentTicks=TRUE)%>%
+  dyRangeSelector(dateWindow = c("2021-01-01", "2021-09-15"))%>%
+   dyLegend(show = "follow")
 
-gp<-ggplotly(p1)  
-
-# Move the label further to the left
-gp[['x']][['layout']][['annotations']][[2]][['x']] <- -0.1
-gp %>% layout(margin = list(l = 60))
 
 ```
+
+
+
 According to the graph \@ref(fig:bar), the graph shows the vaccination status in Pakistan.
 
 Vaccination started in February 2021. It can be seen from the figure that from February to September, the number of people receiving at least one dose gradually increased.
@@ -198,4 +190,4 @@ All in all, the epidemic in Pakistan is under control because of their lower mor
 
 # Acknowledgments
 
-Thanks for contributors of these following R packages: @here, @tidyr, @ggplot2, @gganimate, @dplyr, @plotly.
+Thanks for contributors of these following R packages: @here, @tidyr, @ggplot2, @gganimate, @dplyr, @plotly, @dygraphs, @zoo, @xts, @grid.
