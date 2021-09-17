@@ -108,7 +108,7 @@ vac[is.na(vac)]<-0
 
 # Analysis
 
-## Covid19 Status in Pakistan
+### Covid19 Status in Pakistan
 ```{r all-graph, echo=FALSE, warning=FALSE, message=FALSE, fig.cap=" Trends of the confirmed, deaths and recovered cases"}
 data<- paki %>% 
   group_by(date) %>% 
@@ -148,7 +148,7 @@ According to the graph \@ref(fig:all-graph), it shows the trends of the confirme
 From the graph, the number of deaths has increased slowly, but the number of confirmed and recovered cases has risen rapidly. However, around August 2021, the number of recovered cases rapidly decreased to zero. It is possible that most of the previously confirmed cases have recovered.
 In addition, from the graph \@ref(fig:line), it is easy to find that most of the time, the active cases fluctuate around 100,000, but around August, the active cases are rising rapidly to 1,034,703.I think this situation means that a new round of epidemic is about to come.
 
-## vaccination situation
+### vaccination situation
 
 Vaccination can help people produce some antibodies against the virus, so we want to see how vaccination in Pakistan is.
 
@@ -186,7 +186,8 @@ gp %>% layout(margin = list(l = 60))
 
 ```
 According to the graph \@ref(fig:bar), the graph shows the vaccination status in Pakistan.
-Vaccination will start in February 2021. It can be seen from the figure that from February to September, the number of people receiving at least one dose gradually increased.
+
+Vaccination started in February 2021. It can be seen from the figure that from February to September, the number of people receiving at least one dose gradually increased.
 In addition, it can be seen from the figure that full vaccination began in April. Because we know that you need to wait 3-6 weeks between the two vaccines. So some people got the first shot in February or March, maybe the second shot in April. In general, people who received two injections still showed signs of increase in the past few months.
 
 Moreover, we know that as of September this year, the proportion of people who have received at least one shot of the vaccine has reached around 23%, but the number of people who have been vaccinated all doses only accounts for around 10% of the population. This means that Pakistani citizens are not motivated enough to vaccinate.
