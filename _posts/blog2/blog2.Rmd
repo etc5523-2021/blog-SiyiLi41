@@ -1,0 +1,190 @@
+---
+title: "Covid 19 in Pakistan"
+description: |
+   This is a blog for Covid 19 in Pakistan based on the vaccination status.
+author:
+  - name: Siyi Li
+    url: https://etc5523-blog1-siyili.netlify.app/posts/blog2/
+date: 09-13-2021
+categories: 
+  - Covid19
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: TRUE
+bibliography: reference.bib
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, echo=FALSE}
+library(here)
+library(tidyr)
+library(ggplot2)
+library(gganimate)
+library(dplyr)
+library(coronavirus)
+library(plotly)
+```
+```{r, echo=FALSE}
+knitr::include_graphics(path = "2020_pakistan.jpeg")
+```
+
+# Introduction
+
+Coronavirus is a virus. There are many different types. A coronavirus discovered in 2019 caused a pandemic of respiratory diseases called COVID-19.
+Nowadays COVID-19 is everywhere. No matter which country, every country is actively controlling the spread of COVID-19 and adopting some countermeasures to avoid harm to the people, such as advocating vaccination.
+This blog will focus on analyzing the epidemic situation and vaccination situation in Pakistan.
+
+
+
+# Data description
+There are 2 kinds of dataset, one comes from the package named **coronavirus**and we can get more information in the [websit](https://github.com/RamiKrispin/coronavirus), the other named **vaccination** is from the[owid Github repositories](https://github.com/owid/covid-19-data/tree/master/public/data). In addition we can download the coronavirus dataset from the [RamiKrispin's github](https://github.com/RamiKrispin/coronavirus/tree/master/data)
+
+**coronavirus** dataset focus on the confirmed case, death case and recovered case which are collected by daily.
+ 
+
+```{r, echo=FALSE}
+load(file = here::here("Data/coronavirus-update.rda"))
+
+coronavirus$country <- as.character(gsub(",","",coronavirus$country))
+
+coronavirus%>%
+  filter(country=="Pakistan")->pakistan
+
+paki<-pakistan%>%
+  group_by(date, type) %>%
+  summarise(total = sum(cases, na.rm = TRUE),
+                   .groups = "drop") %>%
+  pivot_wider(names_from = type,
+                     values_from = total) %>%
+  arrange(date) %>%
+  ungroup() %>%
+  mutate(active =  confirmed - death - recovered) %>%
+  mutate(confirmed_cum = cumsum(confirmed),
+                death_cum = cumsum(death),
+                recovered_cum = cumsum(recovered),
+                active_cum = cumsum(active))%>%
+  mutate(year = as.character(lubridate::year(date)), 
+                month = as.character(lubridate::month(date)))
+```
+|**Variable**      |**Class** |**Description**                 |
+|:-----------------|:---------|:-------------------------------|
+|date              |date      |Date recorded                   |
+|confirmed         |numeric   |Location of country             |
+|death             |numeric   |Number of the death cases       |
+|active            |numeric   |Number of the active cases      |
+|recovered         |numeric   |Number of the recovered cases   |
+
+```{r, echo=FALSE}
+vac<-read.csv(file = here::here("Data/owid-covid-data-update.csv"))
+```
+
+```{r, echo=FALSE}
+vac <- vac%>%
+  select(location, date,total_vaccinations,people_vaccinated,people_fully_vaccinated,population)%>%
+  filter(location=="Pakistan")%>%
+   mutate(year = as.character(lubridate::year(date)), 
+                month = as.character(lubridate::month(date)))
+vac[is.na(vac)]<-0
+  
+```
+
+**vaccination** dataset focus on the vaccination status which updated by daily as well.
+
+|**Variable**              |**Class** |**Description**                                                     |
+|:-------------------------|:---------|:-------------------------------------------------------------------|
+|date                      |character |Date recorded                                                       |
+|location                  |character |Location of country                                                 |
+|total_vaccinations        |numeric   |Total number of COVID-19 vaccination doses administered             |
+|people_vaccinated         |numeric   |Total number of people who received at least one vaccine dose       |
+|people_fully_vaccinated   |numeric   |Total number of people who received at all vaccine doses            | 
+|population                |numeric   |Population in Pakistan                                              |
+    
+
+# Analysis
+
+## Covid19 Status in Pakistan
+```{r all-graph, echo=FALSE, warning=FALSE, message=FALSE, fig.cap=" Trends of the confirmed, deaths and recovered cases"}
+data<- paki %>% 
+  group_by(date) %>% 
+  summarise(confirm_cumm = sum(confirmed_cum),
+            death_cumm = sum(death_cum),
+            recovered_cumm = sum(recovered_cum))%>%
+  mutate(date=as.Date(date, "%y/%m/%d"))
+  
+
+ data %>% 
+  ggplot(aes(x = date)) +
+    geom_line(aes(y = confirm_cumm, color = "Confirmed")) +
+    geom_line(aes(y = death_cumm, color = "Deaths")) +
+    geom_line(aes(y =  recovered_cumm, color = "Recovered")) +
+   ylab("Number of cases")+
+   xlab("Date")+
+   ggtitle("Trends of the confirmed, deaths and recovered cases")+
+    transition_reveal(date)
+
+```
+
+
+
+
+```{r line, echo=FALSE,warning=FALSE,message=FALSE, fig.cap="Trend of active cases"}
+paki%>%
+  ggplot(aes(x=date, y=active_cum))+
+  geom_line(colour = "red")+
+  ggtitle("Trend of active cases")->p2
+
+ggplotly(p2)
+  
+```
+According to the graph \@ref(fig:all-graph), it shows the trends of the confirmed case, death case and recovered case from Jan 2020 to Sep 2021.
+From the graph, the number of deaths has increased slowly, but the number of confirmed and recovered cases has risen rapidly. However, around August 2021, the number of recovered cases rapidly decreased to zero. It is possible that most of the previously confirmed cases have recovered.
+In addition, from the graph \@ref(fig:line), it is easy to find that most of the time, the active cases fluctuate around 100,000, but around August, the active cases are rising rapidly to 1,034,703.I think this situation means that a new round of epidemic is about to come.
+
+## vaccination situation
+
+Vaccination can help people produce some antibodies against the virus, so we want to see how vaccination in Pakistan is.
+
+```{r, echo=FALSE}
+vaccine<-vac%>%
+  group_by(year,month,population)%>%
+    summarise(people_vacc=max(people_vaccinated),
+            full_vacc=max(people_fully_vaccinated))%>%
+  ungroup()
+```
+
+```{r bar, fig.cap="Vaccination rate in Pakistan"}
+vac_data<-vaccine %>% 
+  mutate(people_vaccinated_rate=round(people_vacc/population,digits = 5),
+         fully_vaccinated_rate=round(full_vacc/population, digits = 5))
+vacc1<-vac_data%>%
+   pivot_longer(cols =people_vaccinated_rate:fully_vaccinated_rate,
+                names_to = "rates",
+                values_to = "value")
+  
+vacc1%>%
+  ggplot(aes(x=month, y=value, fill=rates))+
+  geom_col(position = "dodge")+
+  facet_grid(~year)+
+  ggtitle("Vaccination rate in Pakistan")->p1
+
+ggplotly(p1)  
+
+```
+According to the graph \@ref(fig:bar), the graph shows the vaccination status in Pakistan.
+Vaccination will start in February 2021. It can be seen from the figure that from February to September, the number of people receiving at least one dose gradually increased.
+In addition, it can be seen from the figure that full vaccination began in April. Because we know that you need to wait 3-6 weeks between the two vaccines. So some people got the first shot in February or March, maybe the second shot in April. In general, people who received two injections still showed signs of increase in the past few months.
+
+Moreover, we know that as of September this year, the proportion of people who have received at least one shot of the vaccine has reached around 23%, but the number of people who have been vaccinated all doses only accounts for around 10% of the population. This means that Pakistani citizens are not motivated enough to vaccinate.
+
+# Conclusion
+
+All in all, the epidemic in Pakistan is under control because of their lower mortality rate and higher recovery rate. Although Pakistan is currently facing a new round of epidemic due to a sharp increase in active cases, the vaccination rate of Pakistani people is also gradually increasing, but the number of vaccinated people has grown too slowly. I think that for the citizens of Pakistan, the enthusiasm for vaccination should be increased. The government can implement some policy areas to encourage citizens to get vaccinated.
+
+# Acknowledgments
+
+Thanks for contributors of these following R packages: @here, @tidyr, @ggplot2, @gganimate, @dplyr, @plotly.
