@@ -26,7 +26,7 @@ The relevant blog post for this assessment is in [blog1.html](https://etc5523-bl
 
 This assessment is due Fri Sep 17 2021 11.55PM AEST.
 
-My selected country is [Pakistan].
+My selected country is Pakistan.
 
 The relevant blog post for this assessment is in [blog2.html](https://etc5523-blog1-siyili.netlify.app/posts/blog2/)
 

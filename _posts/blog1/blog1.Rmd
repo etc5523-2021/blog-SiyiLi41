@@ -114,7 +114,7 @@ vac1%>%
 final_vacc<-vac1%>%
   group_by(month, year, population)%>%
   summarise(newCase=max(total_cases),
-            newVacc=max(total_vaccinations),
+            newVacc=max(people_vaccinated),
             fullVacc=max(people_fully_vaccinated))%>%
   ungroup()%>%
   select(year, month, population, newVacc, fullVacc)%>%
@@ -165,7 +165,7 @@ datatable(p2, escape = FALSE,
   
 ```
 
-This graph \@ref(fig:vacc) shows the full vaccination rate had reached 27.96 percent by August 2021. Compared with that, the amount of people who received at least one vaccine dose is larger than three times. This phenomenon indicates that the vaccine has been widely used in South Korea,  which is also a good way to prevent and control the outbreak.
+This graph \@ref(fig:vacc) shows the full vaccination rate had reached 27.96 percent by August 2021. Compared with that, the amount of people who received at least one vaccine dose is larger than two times. This phenomenon indicates that the vaccine has been widely used in South Korea,  which is also a good way to prevent and control the outbreak.
 
 Moreover, the graph presents the trend of the full vaccination and vaccination. For example, the number of people who had received at least one dose of vaccine increased rapidly at the end of May, but by the end of June, those numbers had changed little. However,The trends of the full vaccination are increase more stable during each month. Overall, both the trends are increase.
 

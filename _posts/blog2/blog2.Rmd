@@ -29,6 +29,7 @@ library(dplyr)
 library(coronavirus)
 library(plotly)
 ```
+
 ```{r, echo=FALSE}
 knitr::include_graphics(path = "2020_pakistan.jpeg")
 ```
@@ -111,9 +112,9 @@ vac[is.na(vac)]<-0
 ```{r all-graph, echo=FALSE, warning=FALSE, message=FALSE, fig.cap=" Trends of the confirmed, deaths and recovered cases"}
 data<- paki %>% 
   group_by(date) %>% 
-  summarise(confirm_cumm = sum(confirmed_cum),
-            death_cumm = sum(death_cum),
-            recovered_cumm = sum(recovered_cum))%>%
+  summarise(confirm_cumm = max(confirmed_cum),
+            death_cumm = max(death_cum),
+            recovered_cumm = max(recovered_cum))%>%
   mutate(date=as.Date(date, "%y/%m/%d"))
   
 
@@ -170,7 +171,8 @@ vacc1%>%
   ggplot(aes(x=month, y=value, fill=rates))+
   geom_col(position = "dodge")+
   facet_grid(~year)+
-  ggtitle("Vaccination rate in Pakistan")->p1
+  ggtitle("Vaccination rate in Pakistan")+
+  ylab("vaccination rate")->p1
 
 ggplotly(p1)  
 
