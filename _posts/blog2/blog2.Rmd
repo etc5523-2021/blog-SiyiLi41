@@ -120,9 +120,11 @@ data<- paki %>%
 
  data %>% 
   ggplot(aes(x = date)) +
-    geom_line(aes(y = confirm_cumm, color = "Confirmed")) +
-    geom_line(aes(y = death_cumm, color = "Deaths")) +
-    geom_line(aes(y =  recovered_cumm, color = "Recovered")) +
+    geom_line(aes(y = confirm_cumm, color = "Confirmed"))+
+    geom_line(aes(y = death_cumm, color = "Deaths"))+
+    geom_line(aes(y =  recovered_cumm, color = "Recovered"))+
+    scale_color_manual(breaks = c("Confirmed", "Recovered", "Deaths"),
+                       values = c("black", "red", "blue"))+ 
    ylab("Number of cases")+
    xlab("Date")+
    ggtitle("Trends of the confirmed, deaths and recovered cases")+
@@ -172,9 +174,18 @@ vacc1%>%
   geom_col(position = "dodge")+
   facet_grid(~year)+
   ggtitle("Vaccination rate in Pakistan")+
-  ylab("vaccination rate")->p1
+  ylab("vaccination rate")+
+  theme(axis.title.x = element_text(margin=margin(t=20)), 
+      axis.title.y = element_text(margin=margin(r=60)))->p1
 
-ggplotly(p1)  
+gp<-ggplotly(p1)  
+# Check current x-location of x-axis label
+gp[['x']][['layout']][['annotations']][[2]][['x']]
+
+
+# Move the label further to the left
+gp[['x']][['layout']][['annotations']][[2]][['x']] <- -0.1
+gp %>% layout(margin = list(l = 60))
 
 ```
 According to the graph \@ref(fig:bar), the graph shows the vaccination status in Pakistan.
